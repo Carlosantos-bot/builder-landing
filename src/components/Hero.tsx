@@ -1,8 +1,39 @@
+import { useEffect, useState } from 'react'
+import { supabaseClient } from '../supabaseClient'
+
 const CTA_URL = 'https://app.builderai.pl' as const
 
-const PLACES_LEFT = 97 as const
-
 export function Hero() {
+  const [placesLeft, setPlacesLeft] = useState<number | null>(null)
+
+  useEffect(() => {
+    let cancelled = false
+
+    async function load() {
+      const { count, error } = await supabaseClient
+        .from('subscriptions')
+        .select('*', { count: 'exact', head: true })
+        .eq('founders', true)
+        .eq('status', 'active')
+
+      if (cancelled) return
+
+      if (error) {
+        setPlacesLeft(null)
+        return
+      }
+
+      const activeFounders = count ?? 0
+      setPlacesLeft(Math.max(0, 100 - activeFounders))
+    }
+
+    void load()
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
   return (
     <header className="border-b border-white/10">
       <div className="mx-auto w-full max-w-6xl px-4 py-5 md:px-6">
@@ -40,13 +71,15 @@ export function Hero() {
                 Zacznij za darmo →
               </a>
 
-              <div className="text-sm font-medium text-builder-text/80">
-                🔥 Pozostało{' '}
-                <span className="font-semibold text-builder-text">
-                  {PLACES_LEFT}
-                </span>{' '}
-                miejsc po 79 zł/mies
-              </div>
+              {placesLeft !== null ? (
+                <div className="text-sm font-medium text-builder-text/80">
+                  🔥 Pozostało{' '}
+                  <span className="font-semibold text-builder-text">
+                    {placesLeft}
+                  </span>{' '}
+                  miejsc po 79 zł/mies
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
