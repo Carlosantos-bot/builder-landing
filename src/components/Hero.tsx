@@ -11,6 +11,7 @@ export function Hero() {
     let cancelled = false
 
     async function load() {
+      console.log('ENV DEBUG:', import.meta.env)
       try {
         const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as
           | string
