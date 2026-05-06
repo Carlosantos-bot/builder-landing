@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { supabaseClient } from '../supabaseClient'
+import { createClient } from '@supabase/supabase-js'
 
 const CTA_URL = 'https://app.builderai.pl' as const
+const FALLBACK_PLACES_LEFT = 97 as const
 
 export function Hero() {
   const [placesLeft, setPlacesLeft] = useState<number | null>(null)
@@ -10,21 +11,39 @@ export function Hero() {
     let cancelled = false
 
     async function load() {
-      const { count, error } = await supabaseClient
-        .from('subscriptions')
-        .select('*', { count: 'exact', head: true })
-        .eq('founders', true)
-        .eq('status', 'active')
+      try {
+        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as
+          | string
+          | undefined
+        const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as
+          | string
+          | undefined
 
-      if (cancelled) return
+        if (!supabaseUrl || !supabaseAnonKey) {
+          if (!cancelled) setPlacesLeft(FALLBACK_PLACES_LEFT)
+          return
+        }
 
-      if (error) {
-        setPlacesLeft(null)
-        return
+        const supabaseClient = createClient(supabaseUrl, supabaseAnonKey)
+
+        const { count, error } = await supabaseClient
+          .from('subscriptions')
+          .select('*', { count: 'exact', head: true })
+          .eq('founders', true)
+          .eq('status', 'active')
+
+        if (cancelled) return
+
+        if (error) {
+          setPlacesLeft(FALLBACK_PLACES_LEFT)
+          return
+        }
+
+        const activeFounders = count ?? 0
+        setPlacesLeft(Math.max(0, 100 - activeFounders))
+      } catch {
+        if (!cancelled) setPlacesLeft(FALLBACK_PLACES_LEFT)
       }
-
-      const activeFounders = count ?? 0
-      setPlacesLeft(Math.max(0, 100 - activeFounders))
     }
 
     void load()
