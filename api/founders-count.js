@@ -4,7 +4,11 @@ export default async function handler(req, res) {
     const key = process.env.SUPABASE_ANON_KEY
 
     if (!url || !key) {
-      return res.status(200).json({ placesLeft: 97, debug: 'missing env vars' })
+      return res.status(200).json({ 
+        placesLeft: 97, 
+        debug: 'missing env vars',
+        envKeys: Object.keys(process.env).filter(k => k.includes('SUPA') || k.includes('supa')).join(',')
+      })
     }
 
     const response = await fetch(
