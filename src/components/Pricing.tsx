@@ -1,4 +1,4 @@
-const CTA_URL = 'https://app.builderai.pl' as const
+const CTA_URL = 'https://app.builderai.pl/pricing' as const
 
 const FEATURES: readonly string[] = [
   'Nielimitowane oferty',
@@ -39,7 +39,6 @@ export function Pricing() {
 
           <a
             href={CTA_URL}
-            target="_blank"
             rel="noreferrer"
             className="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-builder-dark px-5 py-3 text-base font-semibold text-builder-text hover:brightness-110"
           >
@@ -58,9 +57,13 @@ export function Pricing() {
 
           <FeatureList />
 
-          <div className="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-white/5 px-5 py-3 text-base font-semibold text-builder-text/60 ring-1 ring-white/10">
-            Dostępna wkrótce
-          </div>
+          <a
+            href={CTA_URL}
+            rel="noreferrer"
+            className="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-white/5 px-5 py-3 text-base font-semibold text-builder-text ring-1 ring-white/15 hover:bg-white/10 hover:ring-white/25"
+          >
+            Zacznij teraz →
+          </a>
         </article>
       </div>
     </section>
