@@ -31,7 +31,7 @@ export function Footer() {
         </div>
 
         <p className="mt-6 text-xs leading-relaxed text-builder-text/60">
-          Administratorem danych osobowych jest Carlos Santos. Dane przetwarzane
+          Administratorem danych osobowych jest Robert Jaroszek. Dane przetwarzane
           zgodnie z RODO (UE) 2016/679.
         </p>
       </div>
