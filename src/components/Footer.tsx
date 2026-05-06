@@ -6,13 +6,16 @@ export function Footer() {
           <div className="text-sm text-builder-text/80">© 2026 Builder AI</div>
 
           <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-builder-text/80">
-            <a className="hover:text-builder-text" href="#">
+            <a className="hover:text-builder-text" href="/regulamin.html">
               Regulamin
             </a>
             <span aria-hidden="true" className="text-builder-text/30">
               |
             </span>
-            <a className="hover:text-builder-text" href="#">
+            <a
+              className="hover:text-builder-text"
+              href="/polityka-prywatnosci.html"
+            >
               Polityka prywatności
             </a>
             <span aria-hidden="true" className="text-builder-text/30">
