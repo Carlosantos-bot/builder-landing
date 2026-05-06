@@ -1,18 +1,21 @@
-import { createClient } from '@supabase/supabase-js'
-
 export default async function handler(req, res) {
-  const supabase = createClient(
-    process.env.SUPABASE_URL,
-    process.env.SUPABASE_ANON_KEY
-  )
-  
-  const { count, error } = await supabase
-    .from('subscriptions')
-    .select('*', { count: 'exact', head: true })
-    .eq('founders', true)
-    .eq('status', 'active')
+  const url = process.env.SUPABASE_URL
+  const key = process.env.SUPABASE_ANON_KEY
 
-  if (error) return res.status(500).json({ error: error.message })
-  
+  const response = await fetch(
+    `${url}/rest/v1/subscriptions?select=id&founders=eq.true&status=eq.active`,
+    {
+      headers: {
+        'apikey': key,
+        'Authorization': `Bearer ${key}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'count=exact',
+      },
+    }
+  )
+
+  const countHeader = response.headers.get('content-range')
+  const count = countHeader ? parseInt(countHeader.split('/')[1]) : 0
+
   res.json({ placesLeft: 100 - (count || 0) })
 }
