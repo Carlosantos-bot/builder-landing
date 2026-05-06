@@ -1,15 +1,7 @@
 export default async function handler(req, res) {
   try {
-    const url = process.env.SUPABASE_URL
-    const key = process.env.SUPABASE_ANON_KEY
-
-    if (!url || !key) {
-      return res.status(200).json({ 
-        placesLeft: 97, 
-        debug: 'missing env vars',
-        envKeys: Object.keys(process.env).filter(k => k.includes('SUPA') || k.includes('supa')).join(',')
-      })
-    }
+    const url = 'https://lvofjaxliueblngsrxkg.supabase.co'
+    const key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx2b2ZqYXhsaXVlYmxuZ3NyeGtnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0OTg1NzIsImV4cCI6MjA4OTA3NDU3Mn0.FMciJlkSfh6UP2VPZMOdNoYELbjFDhtNAcRiTxXJnWw'
 
     const response = await fetch(
       `${url}/rest/v1/subscriptions?select=id&founders=eq.true&status=eq.active`,
