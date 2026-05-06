@@ -19,6 +19,12 @@ export function Hero() {
           | string
           | undefined
 
+        console.log('SUPABASE URL:', import.meta.env.VITE_SUPABASE_URL)
+        console.log(
+          'SUPABASE KEY:',
+          import.meta.env.VITE_SUPABASE_ANON_KEY ? 'present' : 'missing',
+        )
+
         if (!supabaseUrl || !supabaseAnonKey) {
           if (!cancelled) setPlacesLeft(FALLBACK_PLACES_LEFT)
           return
