@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { supabaseClient } from '../supabaseClient'
 
 const CTA_URL = 'https://app.builderai.pl' as const
 const FALLBACK_PLACES_LEFT = 97 as const
@@ -7,10 +8,24 @@ export function Hero() {
   const [placesLeft, setPlacesLeft] = useState<number | null>(null)
 
   useEffect(() => {
-    fetch('/api/founders-count')
-      .then((r) => r.json())
-      .then((data) => setPlacesLeft(data.placesLeft ?? FALLBACK_PLACES_LEFT))
-      .catch(() => setPlacesLeft(FALLBACK_PLACES_LEFT))
+    let cancelled = false
+    void (async () => {
+      try {
+        const { data, error } = await supabaseClient.rpc('get_founders_count')
+        if (cancelled) return
+        if (error) {
+          setPlacesLeft(FALLBACK_PLACES_LEFT)
+          return
+        }
+        const count = typeof data === 'number' ? data : 0
+        setPlacesLeft(100 - count)
+      } catch {
+        if (!cancelled) setPlacesLeft(FALLBACK_PLACES_LEFT)
+      }
+    })()
+    return () => {
+      cancelled = true
+    }
   }, [])
 
   return (
