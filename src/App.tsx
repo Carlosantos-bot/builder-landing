@@ -7,7 +7,7 @@ import { Product } from './components/Product'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-builder-dark text-builder-text">
+    <div className="min-h-screen bg-paper text-ink">
       <Hero />
       <Pain />
       <Product />

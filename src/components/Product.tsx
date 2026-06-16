@@ -29,15 +29,15 @@ export function Product() {
         {STEPS.map((s) => (
           <article
             key={s.k}
-            className="rounded-2xl bg-builder-elevated/25 p-6 ring-1 ring-white/10"
+            className="rounded-3xl border border-ink/10 bg-white/45 p-6 shadow-[0_14px_40px_rgba(20,18,13,0.06)]"
           >
-            <div className="text-sm font-semibold tracking-widest text-builder-text/70">
+            <div className="font-mono text-sm font-bold tracking-[0.22em] text-accent">
               {s.k}
             </div>
-            <h2 className="mt-2 text-lg font-semibold tracking-tight">
+            <h2 className="mt-3 font-display text-xl font-extrabold tracking-[-0.035em] text-ink">
               {s.title}
             </h2>
-            <p className="mt-2 text-sm leading-relaxed text-builder-text/80">
+            <p className="mt-3 text-sm leading-relaxed text-ink/70">
               {s.body}
             </p>
           </article>
@@ -46,4 +46,3 @@ export function Product() {
     </section>
   )
 }
-
