@@ -1,22 +1,22 @@
 type PainCard = {
-  icon: string
+  k: '01' | '02' | '03'
   title: string
   body: string
 }
 
 const PAINS: readonly PainCard[] = [
   {
-    icon: '📊',
+    k: '01',
     title: 'Excel się rozjeżdża',
     body: 'Liczyłeś w Excelu, wysłałeś, okazało się że zapomniałeś o materiale. Dopłaciłeś z własnej kieszeni.',
   },
   {
-    icon: '⏰',
+    k: '02',
     title: 'Wycena zajmuje 2 godziny',
     body: 'Zamiast być na budowie, siedzisz wieczorem i liczysz. Każde zlecenie od zera.',
   },
   {
-    icon: '❓',
+    k: '03',
     title: 'Nie wiesz czy zarabiasz',
     body: 'Klient zapłacił, ale czy zostało coś po materiałach i robociźnie? Nie wiesz.',
   },
@@ -29,15 +29,15 @@ export function Pain() {
         {PAINS.map((p) => (
           <article
             key={p.title}
-            className="rounded-2xl bg-builder-elevated/35 p-6 ring-1 ring-white/10"
+            className="rounded-3xl border border-ink/10 bg-white/35 p-6 shadow-[0_14px_40px_rgba(20,18,13,0.06)]"
           >
-            <div className="text-2xl" aria-hidden="true">
-              {p.icon}
+            <div className="font-mono text-sm font-bold tracking-[0.22em] text-accent">
+              {p.k}
             </div>
-            <h2 className="mt-3 text-lg font-semibold tracking-tight">
+            <h2 className="mt-3 font-display text-xl font-extrabold tracking-[-0.035em] text-ink">
               {p.title}
             </h2>
-            <p className="mt-2 text-sm leading-relaxed text-builder-text/80">
+            <p className="mt-3 text-sm leading-relaxed text-ink/70">
               {p.body}
             </p>
           </article>
@@ -46,4 +46,3 @@ export function Pain() {
     </section>
   )
 }
-

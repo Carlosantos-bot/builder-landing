@@ -1,3 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --paper: #F2EDE3;
+    --ink: #14120D;
+    --accent: #C7541F;
+    --forest: #2C3A2E;
+  }
+
+  html {
+    background: var(--paper);
+  }
+
+  body {
+    min-width: 320px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  }
+}

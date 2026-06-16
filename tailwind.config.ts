@@ -5,13 +5,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        'builder-dark': '#111e26',
-        'builder-elevated': '#2d4055',
-        'builder-coral': '#e76f51',
-        'builder-text': '#f5f0e8',
+        paper: '#F2EDE3',
+        ink: '#14120D',
+        accent: '#C7541F',
+        forest: '#2C3A2E',
+      },
+      fontFamily: {
+        display: ['"Bricolage Grotesque"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
     },
   },
   plugins: [],
 } satisfies Config
-
