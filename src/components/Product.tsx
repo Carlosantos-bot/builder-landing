@@ -2,6 +2,10 @@ type Step = {
   k: '01' | '02' | '03'
   title: string
   body: string
+  image?: {
+    src: string
+    alt: string
+  }
 }
 
 const STEPS: readonly Step[] = [
@@ -13,11 +17,19 @@ const STEPS: readonly Step[] = [
   {
     k: '02',
     title: 'Kosztorys w 2 minuty',
+    image: {
+      src: '/screenshots/01-kosztorys-wewnetrzny-marza.png',
+      alt: 'Widok kosztorysu wewnętrznego z marżą',
+    },
     body: 'Ceny materiałów i robocizny. Marża widoczna od razu.',
   },
   {
     k: '03',
     title: 'Oferta PDF do klienta',
+    image: {
+      src: '/screenshots/02-oferta-klienta-bez-marzy.png',
+      alt: 'Widok oferty klienta bez marży',
+    },
     body: 'Profesjonalny dokument jednym kliknięciem. Klient dostaje PDF.',
   },
 ] as const
@@ -40,6 +52,14 @@ export function Product() {
             <p className="mt-3 text-sm leading-relaxed text-ink/70">
               {s.body}
             </p>
+            {s.image ? (
+              <img
+                src={s.image.src}
+                alt={s.image.alt}
+                className="mt-5 block max-w-full rounded-2xl border border-ink/10 shadow-[0_12px_32px_rgba(20,18,13,0.08)]"
+                loading="lazy"
+              />
+            ) : null}
           </article>
         ))}
       </div>
