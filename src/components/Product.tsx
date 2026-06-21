@@ -45,7 +45,7 @@ export function Product() {
         {STEPS.map((s) => (
           <article
             key={s.k}
-            className="rounded-3xl border border-ink/10 bg-white/45 p-6 shadow-[0_14px_40px_rgba(20,18,13,0.06)]"
+            className="rounded-3xl border border-l-[3px] border-ink/10 border-l-[#2C3A2E] bg-white/45 p-6 shadow-[0_14px_40px_rgba(20,18,13,0.06)]"
           >
             <div className="font-mono text-sm font-bold tracking-[0.22em] text-accent">
               {s.k}
