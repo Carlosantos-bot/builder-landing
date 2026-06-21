@@ -68,7 +68,7 @@ function PainVisual({ id }: { id: PainCard['k'] }) {
       <img
         src="/screenshots/zegar.png"
         alt=""
-        className="mx-auto mt-4 block w-full max-w-[260px] rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.12)]"
+        className="mt-4 block max-h-[160px] w-full rounded-lg object-cover object-top shadow-[0_2px_12px_rgba(0,0,0,0.12)]"
         loading="lazy"
       />
     )
