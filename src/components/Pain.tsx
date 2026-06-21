@@ -104,7 +104,7 @@ export function Pain() {
             key={p.title}
             className="rounded-3xl border border-ink/10 bg-white/35 p-6 shadow-[0_14px_40px_rgba(20,18,13,0.06)]"
           >
-            <div className="font-mono text-sm font-bold tracking-[0.22em] text-accent">
+            <div className="font-mono text-sm font-bold tracking-[0.22em] text-[#C0392B]">
               {p.k}
             </div>
             <h2 className="mt-3 font-display text-xl font-extrabold tracking-[-0.035em] text-ink">
