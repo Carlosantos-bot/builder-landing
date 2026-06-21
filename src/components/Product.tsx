@@ -18,7 +18,7 @@ const STEPS: readonly Step[] = [
     k: '02',
     title: 'Kosztorys w 2 minuty',
     image: {
-      src: '/screenshots/01-kosztorys-wewnetrzny-marza.png',
+      src: '/screenshots/screenshot-kosztorys.png',
       alt: 'Widok kosztorysu wewnętrznego z marżą',
     },
     body: 'Ceny materiałów i robocizny. Marża widoczna od razu.',
@@ -27,7 +27,7 @@ const STEPS: readonly Step[] = [
     k: '03',
     title: 'Oferta PDF do klienta',
     image: {
-      src: '/screenshots/02-oferta-klienta-bez-marzy.png',
+      src: '/screenshots/screenshot-oferta.png',
       alt: 'Widok oferty klienta bez marży',
     },
     body: 'Profesjonalny dokument jednym kliknięciem. Klient dostaje PDF.',
@@ -56,7 +56,7 @@ export function Product() {
               <img
                 src={s.image.src}
                 alt={s.image.alt}
-                className="mt-5 block max-w-full rounded-2xl border border-ink/10 shadow-[0_12px_32px_rgba(20,18,13,0.08)]"
+                className="mt-4 block w-full rounded-lg"
                 loading="lazy"
               />
             ) : null}
