@@ -8,7 +8,7 @@ function ProfitUnknownChart() {
   return (
     <svg
       viewBox="0 0 680 300"
-      className="mt-4 block w-full"
+      className="mt-4 block min-h-[220px] w-full"
       role="img"
       aria-label="Podział przychodu: materiały 38%, robocizna 29%, inne koszty 21%, zysk nieznany"
     >
@@ -32,7 +32,7 @@ function ProfitUnknownChart() {
         <text x="304" y="58" fontSize="30" fontWeight="800">
           Podział przychodu
         </text>
-        <g fontSize="24">
+        <g fontSize="30">
           <circle cx="314" cy="96" r="9" fill="#C7541F" />
           <text x="340" y="104">Materiały 38%</text>
           <circle cx="314" cy="133" r="9" fill="#2C3A2E" />
@@ -57,7 +57,7 @@ function PainVisual({ id }: { id: PainCard['k'] }) {
       <img
         src="/screenshots/excel-chaos.png"
         alt=""
-        className="mt-4 block w-full rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.12)]"
+        className="mt-4 block w-full max-w-full rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.12)]"
         loading="lazy"
       />
     )
@@ -68,7 +68,7 @@ function PainVisual({ id }: { id: PainCard['k'] }) {
       <img
         src="/screenshots/zegar.png"
         alt=""
-        className="mx-auto mt-4 block w-full max-w-[220px] rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.12)]"
+        className="mx-auto mt-4 block w-full max-w-[260px] rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.12)]"
         loading="lazy"
       />
     )
