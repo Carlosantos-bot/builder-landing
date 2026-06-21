@@ -10,7 +10,7 @@ function PainVisual({ id }: { id: PainCard['k'] }) {
       <img
         src="/screenshots/excel-chaos.png"
         alt=""
-        className="mt-4 block w-full max-w-full rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.12)]"
+        className="mt-4 block w-full rounded-lg"
         loading="lazy"
       />
     )
@@ -21,42 +21,37 @@ function PainVisual({ id }: { id: PainCard['k'] }) {
       <img
         src="/screenshots/zegar.png"
         alt=""
-        className="mt-4 block max-h-[160px] w-full rounded-lg object-cover object-top shadow-[0_2px_12px_rgba(0,0,0,0.12)]"
+        className="mt-4 block max-h-[120px] w-full rounded-lg object-cover object-top"
         loading="lazy"
       />
     )
   }
 
   return (
-    <>
-      <img
-        src="/screenshots/word-chaos.png"
-        alt=""
-        className="mt-4 block w-full rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.12)]"
-        loading="lazy"
-      />
-      <p className="mt-2 text-[13px] italic text-[#C0392B]">
-        Twoja oferta wygląda jak coś zrobionego w 5 minut. Klient wybiera kogoś innego.
-      </p>
-    </>
+    <img
+      src="/screenshots/word-chaos.png"
+      alt=""
+      className="mt-4 block w-full rounded-lg"
+      loading="lazy"
+    />
   )
 }
 
 const PAINS: readonly PainCard[] = [
   {
     k: '01',
-    title: 'Excel się rozjeżdża',
+    title: 'Excel się rozjeżdża?',
     body: 'Liczyłeś w Excelu, wysłałeś, okazało się że zapomniałeś o materiale. Dopłaciłeś z własnej kieszeni.',
   },
   {
     k: '02',
-    title: 'Wycena zajmuje 2 godziny',
-    body: 'Zamiast być na budowie, siedzisz wieczorem i liczysz. Każde zlecenie od zera.',
+    title: 'Wycena zajmuje 2 godziny?',
+    body: 'Zamiast wolnego wieczoru siedzisz i liczysz. Każde zlecenie od zera.',
   },
   {
     k: '03',
-    title: 'Nie wiesz czy zarabiasz',
-    body: 'Klient zapłacił, ale czy zostało coś po materiałach i robociźnie? Nie wiesz.',
+    title: 'Twoja oferta wygląda nieprofesjonalnie?',
+    body: 'Klient dostaje dokument bez logo, bez struktury, bez ceny końcowej. Wybiera kogoś innego.',
   },
 ] as const
 
@@ -67,9 +62,9 @@ export function Pain() {
         {PAINS.map((p) => (
           <article
             key={p.title}
-            className="rounded-3xl border border-ink/10 bg-white/35 p-6 shadow-[0_14px_40px_rgba(20,18,13,0.06)]"
+            className="rounded-3xl border border-l-[3px] border-ink/10 border-l-[#B85450] bg-white/35 p-6 shadow-[0_14px_40px_rgba(20,18,13,0.06)]"
           >
-            <div className="font-mono text-sm font-bold tracking-[0.22em] text-[#C0392B]">
+            <div className="font-mono text-sm font-bold tracking-[0.22em] text-[#B85450]">
               {p.k}
             </div>
             <h2 className="mt-3 font-display text-xl font-extrabold tracking-[-0.035em] text-ink">
