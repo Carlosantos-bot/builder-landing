@@ -12,6 +12,10 @@ const STEPS: readonly Step[] = [
   {
     k: '01',
     title: 'Wybierz typ prac i zakres',
+    image: {
+      src: '/screenshots/screenshot-kosztorys.png',
+      alt: 'Widok kosztorysu wewnętrznego z marżą',
+    },
     body: 'Malowanie, tynki, płytki, instalacje. Baza polskich cen gotowa.',
   },
   {
