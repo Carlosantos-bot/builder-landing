@@ -21,7 +21,7 @@ function PainVisual({ id }: { id: PainCard['k'] }) {
       <img
         src="/screenshots/zegar.png"
         alt=""
-        className="mt-4 block max-h-[160px] w-full rounded-lg object-cover object-top shadow-[0_2px_12px_rgba(0,0,0,0.12)]"
+        className="mt-4 mx-auto block w-full max-w-[320px] rounded-lg"
         loading="lazy"
       />
     )
@@ -69,7 +69,7 @@ export function Pain() {
             key={p.title}
             className="rounded-3xl border border-ink/10 bg-white/35 p-6 shadow-[0_14px_40px_rgba(20,18,13,0.06)]"
           >
-            <div className="font-mono text-sm font-bold tracking-[0.22em] text-[#C0392B]">
+            <div className="font-mono text-sm font-bold tracking-[0.22em] text-[#B85450]">
               {p.k}
             </div>
             <h2 className="mt-3 font-display text-xl font-extrabold tracking-[-0.035em] text-ink">
