@@ -19,7 +19,14 @@ function PainVisual({ id }: { id: PainCard['k'] }) {
   }
 
   if (id === '02') {
-    return <NightIllustration />
+    return (
+      <img
+        src="/screenshots/zegar.png"
+        alt=""
+        className="mt-4 block max-h-[120px] w-full rounded-lg object-cover object-top"
+        loading="lazy"
+      />
+    )
   }
 
   return (
