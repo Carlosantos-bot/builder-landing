@@ -1,3 +1,5 @@
+import { NightIllustration } from './NightIllustration'
+
 type PainCard = {
   k: '01' | '02' | '03'
   title: string
